@@ -114,7 +114,7 @@ export default function Footer({ onNavigate }: FooterProps) {
             <img
               src={social.src}
               alt={social.label}
-              className="h-6 object-contain"
+              className="h-10 object-contain"
             />
           ) : (
             <social.icon size={18} />
