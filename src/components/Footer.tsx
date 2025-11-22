@@ -110,27 +110,27 @@ export default function Footer({ onNavigate }: FooterProps) {
       ))}
   </div>
 
-  {/* Bark under them */}
-  <div className="mt-4">
-    {socialLinks
-      .filter((s) => s.type === 'image')
-      .map((social) => (
-        <a
-          key={social.label}
-          href={social.href}
-          target="_blank"
-          rel="noopener noreferrer"
-          aria-label={social.label}
-          className="px-5 py-2 rounded-md flex items-start justify-start bg-transparent"
-        >
-          <img
-            src={social.src}
-            alt={social.label}
-            className="h-8 w-auto object-contain"
-          />
-        </a>
-      ))}
-  </div>
+{/* Bark under them */}
+<div className="mt-4 flex flex-col items-start">
+  {socialLinks
+    .filter((s) => s.type === 'image')
+    .map((social) => (
+      <a
+        key={social.label}
+        href={social.href}
+        target="_blank"
+        rel="noopener noreferrer"
+        aria-label={social.label}
+        className="px-5 py-2 rounded-md flex items-center justify-start bg-[#1e293b]" // visible bg
+      >
+        <img
+          src={social.src}
+          alt={social.label}
+          className="h-8 w-auto object-contain"
+        />
+      </a>
+    ))}
+</div>
 </div>
 
 </div>     
