@@ -45,7 +45,7 @@ export default function Footer({ onNavigate }: FooterProps) {
               href="https://gmail.com"
               target="_blank"
               rel="noopener noreferrer"
-              className="text-[#94a3b8] hover:text-[#2563eb] text-sm transition-colors"
+              className="flex justify-center text-[#94a3b8] hover:text-[#2563eb] text-sm transition-colors">
             >
               info@neptrex.com
             </a>
