@@ -202,7 +202,7 @@ export default function Home({ onNavigate }: HomeProps) {
 
           {/* First Row - 3 Cards */}
           <div className="flex justify-center mb-6 sm:mb-8">
-            <div className="grid grid-cols-1 md:grid-cols-3 gap-4 sm:gap-6 w-full max-w-3xl">
+            <div className="grid grid-cols-1 md:grid-cols-3 gap-4 sm:gap-6 w-full">
               {clients.slice(0, 3).map((client, index) => (
                 <ScrollReveal key={index} direction="up" delay={index * 100} duration={0.6}>
                   <AnimatedCard
@@ -221,7 +221,7 @@ export default function Home({ onNavigate }: HomeProps) {
 
           {/* Second Row - 2 Cards Centered */}
           <div className="flex justify-center">
-            <div className="grid grid-cols-1 md:grid-cols-2 gap-4 sm:gap-6 w-full max-w-7xl">
+            <div className="grid grid-cols-1 md:grid-cols-2 gap-4 sm:gap-6 w-full">
               {clients.slice(3).map((client, index) => (
                 <ScrollReveal key={index + 3} direction="up" delay={(index + 3) * 100} duration={0.6}>
                   <AnimatedCard
