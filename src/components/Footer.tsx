@@ -22,7 +22,7 @@ export default function Footer({ onNavigate }: FooterProps) {
   const socialLinks = [
     { icon: Twitter, href: 'https://x.com', label: 'Twitter' },
     { icon: Instagram, href: 'https://instagram.com', label: 'Instagram' },
-    { type: 'image', src: '/bark.png', href: 'https://bark.com', label: 'Bark' },
+    { type: 'image', src: '/bark copy.png', href: 'https://bark.com', label: 'Bark' },
   ];
 
   return (
