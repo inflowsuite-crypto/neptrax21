@@ -16,6 +16,7 @@ import {
 import { motion, useScroll, useTransform, useInView, ScrollReveal } from '../components/FramerMotion';
 import { useRef, useEffect, useState } from 'react';
 import Silk from '../components/Silk';
+import MobileGradientBackground from '../components/MobileGradientBackground';
 import MissionSection from '../components/MissionSection';
 import AnimatedCounter from '../components/AnimatedCounter';
 import TypeWriter from '../components/TypeWriter';
@@ -27,18 +28,23 @@ interface HomeProps {
   onNavigate: (section: string) => void;
 }
 
-// Mobile detection hook
+// Enhanced mobile detection hook with tablet support
 const useMobile = () => {
   const [isMobile, setIsMobile] = useState(false);
 
   useEffect(() => {
     const checkDevice = () => {
-      setIsMobile(window.innerWidth < 768);
+      // Detect mobile/tablet devices (up to 1024px for tablets in landscape)
+      const width = window.innerWidth;
+      const isTouchDevice = 'ontouchstart' in window || navigator.maxTouchPoints > 0;
+
+      // Consider as mobile: width < 1024px OR touch device with width < 1280px
+      setIsMobile(width <= 1024 || (isTouchDevice && width <= 1280));
     };
-    
+
     checkDevice();
     window.addEventListener('resize', checkDevice);
-    
+
     return () => {
       window.removeEventListener('resize', checkDevice);
     };
@@ -87,17 +93,25 @@ export default function Home({ onNavigate }: HomeProps) {
       <section className="relative min-h-screen flex items-center overflow-hidden">
         <HeroAnimations isMobile={isMobile} />
 
-        <div className="absolute inset-0">
-          <Silk
-            speed={isMobile ? 4 : 8}
-            scale={isMobile ? 0.8 : 1}
-            color="#0b3c4d"
-            noiseIntensity={0.5}
-            rotation={0}
-          />
-        </div>
-
-        <div className="absolute inset-0 bg-gradient-to-br from-[#0f172a] via-[#0d1117] to-[#1e3a8a] opacity-70"></div>
+        {/* Conditional Background Rendering */}
+        {isMobile ? (
+          // Mobile/Tablet: Multi-layered Gradient Background
+          <MobileGradientBackground />
+        ) : (
+          // Desktop: Silk Component
+          <>
+            <div className="absolute inset-0">
+              <Silk
+                speed={8}
+                scale={1}
+                color="#0b3c4d"
+                noiseIntensity={0.5}
+                rotation={0}
+              />
+            </div>
+            <div className="absolute inset-0 bg-gradient-to-br from-[#0f172a] via-[#0d1117] to-[#1e3a8a] opacity-70"></div>
+          </>
+        )}
 
         <div className="relative z-10 max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 w-full pt-16 lg:pt-32">
           <div className="max-w-3xl mx-auto lg:mx-0 text-center lg:text-left">
