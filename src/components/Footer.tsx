@@ -117,7 +117,7 @@ export default function Footer({ onNavigate }: FooterProps) {
               className="h-8 object-contain"
             />
           ) : (
-            <social.icon size={22} />
+            <social.icon size={20} />
           )}
         </a>
       );
