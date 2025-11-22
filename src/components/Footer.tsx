@@ -87,7 +87,7 @@ export default function Footer({ onNavigate }: FooterProps) {
             </ul>
           </div>
 
-<div>
+<div className="flex flex-col items-start">
   <h3 className="text-xl font-bold text-[#f1f5f9] mb-3">
     Connect
   </h3>
@@ -121,17 +121,18 @@ export default function Footer({ onNavigate }: FooterProps) {
           target="_blank"
           rel="noopener noreferrer"
           aria-label={social.label}
-          className="px-5 py-2 rounded-full flex items-center justify-center bg-transparent"
+          className="px-5 py-2 rounded-full flex items-center justify-start bg-transparent"
         >
           <img
             src={social.src}
             alt={social.label}
-            className="h-8 w-22 object-contain" 
+            className="h-10 w-auto object-contain"
           />
         </a>
       ))}
   </div>
 </div>
+
 </div>     
 
         <div className="border-t border-white/8 pt-8 flex flex-col items-center justify-center text-center">
