@@ -87,30 +87,43 @@ export default function Footer({ onNavigate }: FooterProps) {
             </ul>
           </div>
 
-          <div>
-            <h3 className="text-xl font-bold text-[#f1f5f9] mb-3">
-              Connect
-            </h3>
-            <div className="flex gap-4">
-              {socialLinks.map((social) => (
-                <a
-                  key={social.label}
-                  href={social.href}
-                  target="_blank"
-                  rel="noopener noreferrer"
-                  className="w-10 h-10 rounded-full bg-[#1e293b] flex items-center justify-center text-[#94a3b8] hover:text-[#2563eb] hover:bg-[#1e3a8a] transition-all"
-                  aria-label={social.label}
-                >
-                  {social.type === 'image' ? (
-                    <img src={social.src} alt={social.label} className="w-5 h-5 object-contain" />
-                  ) : (
-                    <social.icon size={18} />
-                  )}
-                </a>
-              ))}
-            </div>
-          </div>
-        </div>
+<div>
+  <h3 className="text-xl font-bold text-[#f1f5f9] mb-3">
+    Connect
+  </h3>
+
+  <div className="flex gap-4">
+    {socialLinks.map((social) => {
+      const isImage = social.type === 'image';
+
+      return (
+        <a
+          key={social.label}
+          href={social.href}
+          target="_blank"
+          rel="noopener noreferrer"
+          aria-label={social.label}
+          className={
+            isImage
+              ? "px-4 py-2 rounded-full flex items-center justify-center" // pill shape
+              : "w-10 h-10 rounded-full bg-[#1e293b] flex items-center justify-center text-[#94a3b8] hover:text-[#2563eb] hover:bg-[#1e3a8a] transition-all"
+          }
+          style={isImage ? { background: "transparent" } : {}}
+        >
+          {isImage ? (
+            <img
+              src={social.src}
+              alt={social.label}
+              className="h-6 object-contain"
+            />
+          ) : (
+            <social.icon size={18} />
+          )}
+        </a>
+      );
+    })}
+  </div>
+</div>
 
         <div className="border-t border-white/8 pt-8 flex flex-col items-center justify-center text-center">
           <p className="text-[#94a3b8] text-sm">
