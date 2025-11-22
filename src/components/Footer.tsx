@@ -99,11 +99,9 @@ export default function Footer({ onNavigate }: FooterProps) {
         target="_blank"
         rel="noopener noreferrer"
         className={`
-          flex items-center justify-center 
-          text-[#94a3b8] hover:text-[#2563eb] 
-          transition-all
+          flex items-center justify-center text-[#94a3b8] hover:text-[#2563eb] transition-all
           ${social.type === 'image' 
-            ? 'bg-transparent hover:bg-transparent p-0' // No background for bark
+            ? 'hover:opacity-80' // Simple hover effect for Bark
             : 'w-10 h-10 rounded-full bg-[#1e293b] hover:bg-[#1e3a8a]'
           }
         `}
@@ -113,7 +111,7 @@ export default function Footer({ onNavigate }: FooterProps) {
           <img 
             src={social.src} 
             alt={social.label} 
-            className="w-auto h-6 object-contain" // Adjusted for rectangular image
+            className="h-6 w-auto object-contain" // Adjust height as needed
           />
         ) : (
           <social.icon size={18} />
