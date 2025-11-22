@@ -126,7 +126,7 @@ export default function Footer({ onNavigate }: FooterProps) {
           <img
             src={social.src}
             alt={social.label}
-            className="h-10 w-auto object-contain"
+            className="h-8 w-auto object-contain"
           />
         </a>
       ))}
