@@ -121,7 +121,7 @@ export default function Footer({ onNavigate }: FooterProps) {
         target="_blank"
         rel="noopener noreferrer"
         aria-label={social.label}
-        className="px-5 py-2 rounded-md flex items-center justify-start"
+        className="px-5 py-2 rounded-md flex items-start justify-start"
       >
         <img
           src={social.src}
