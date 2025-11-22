@@ -22,6 +22,7 @@ export default function Footer({ onNavigate }: FooterProps) {
   const socialLinks = [
     { icon: Twitter, href: 'https://x.com', label: 'Twitter' },
     { icon: Instagram, href: 'https://instagram.com', label: 'Instagram' },
+    { type: 'image', src: '/bark.png', href: 'https://bark.com', label: 'Bark' },
   ];
 
   return (
@@ -40,6 +41,14 @@ export default function Footer({ onNavigate }: FooterProps) {
                 Neptrax
               </span>
             </button>
+            <a
+              href="https://gmail.com"
+              target="_blank"
+              rel="noopener noreferrer"
+              className="text-[#94a3b8] hover:text-[#2563eb] text-sm transition-colors"
+            >
+              info@neptrex.com
+            </a>
           </div>
 
           <div>
@@ -92,7 +101,11 @@ export default function Footer({ onNavigate }: FooterProps) {
                   className="w-10 h-10 rounded-full bg-[#1e293b] flex items-center justify-center text-[#94a3b8] hover:text-[#2563eb] hover:bg-[#1e3a8a] transition-all"
                   aria-label={social.label}
                 >
-                  <social.icon size={18} />
+                  {social.type === 'image' ? (
+                    <img src={social.src} alt={social.label} className="w-5 h-5 object-contain" />
+                  ) : (
+                    <social.icon size={18} />
+                  )}
                 </a>
               ))}
             </div>
